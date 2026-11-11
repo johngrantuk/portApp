@@ -1,6 +1,6 @@
 # Test approach (LO1)
 
-Requirement IDs refer to `docs/requirements.md`. Pilot run output: `docs/evidence/lo1-pilot-run.txt` (`npm test`, Vitest 5.1.0, 20 passed, 1 expected fail).
+Requirement IDs refer to `docs/requirements.md`. Pilot run output: `docs/evidence/lo1-pilot-run.txt` (`npm test`, Vitest 5.1.0, 20 passed, 1 expected fail; the expected fail, KB-1, has since been fixed).
 
 ## 1.2 Levels
 
@@ -28,7 +28,7 @@ Requirement IDs refer to `docs/requirements.md`. Pilot run output: `docs/evidenc
 ## 1.4 Appropriateness: honest assessment
 
 - **Example-based unit tests suit valuation.** The functions are pure and deterministic, so tests are cheap and fast (suite runs in under 0.5 s). Limits: examples cover chosen cases only. Combinations of settings (default prices x derivatives x trust) are numerous, so property-based or mutation testing would be needed to show nothing is missed (LO3/LO4).
-- **The pilot found a real defect.** RR-4: `proxy.ts` throws on invalid base64 (`atob`) instead of returning 401. It is recorded as `it.fails` in `tests/proxy.test.ts` so the suite stays green until fixed; diagnosis and failing run are in `docs/known-bugs.md` (KB-1). This supports negative testing for security requirements.
+- **The pilot found a real defect.** RR-4: `proxy.ts` throws on invalid base64 (`atob`) instead of returning 401. It was recorded as `it.fails` so the suite stayed green, then fixed test-first in a later commit; diagnosis, failing run and passing run are in `docs/known-bugs.md` (KB-1). This supports negative testing for security requirements.
 - **Mocking limits integration tests.** `portfolio.ts` is about 330 lines of viem multicall logic. Doubles verify our handling of results, not that real Aave contracts, RPC batch limits (the code mentions publicnode rejecting large payloads) or DefiLlama behave as assumed. Those risks stay untested; this is a known gap for LO4.
 - **Live-network behaviour is not reproducible.** QR-1 and prices depend on public services, so I do not automate them. A manual measurement is cheaper and more honest than a flaky test.
 - **Qualitative requirements (LR-1, LR-2) have weak oracles.** Example tests cover formatting helpers but not whether the UI looks right; review (LO5) fits better, with subjective results.

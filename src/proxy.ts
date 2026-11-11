@@ -9,10 +9,17 @@ export function proxy(request: NextRequest) {
   const header = request.headers.get("authorization") ?? "";
   const [scheme, encoded] = header.split(" ");
   if (scheme === "Basic" && encoded) {
-    const decoded = atob(encoded);
-    const separator = decoded.indexOf(":");
-    if (decoded.slice(0, separator) === username && decoded.slice(separator + 1) === password) {
-      return NextResponse.next();
+    let decoded: string | null = null;
+    try {
+      decoded = atob(encoded);
+    } catch {
+      // Invalid base64: treat as bad credentials and fall through to the 401 response.
+    }
+    if (decoded !== null) {
+      const separator = decoded.indexOf(":");
+      if (decoded.slice(0, separator) === username && decoded.slice(separator + 1) === password) {
+        return NextResponse.next();
+      }
     }
   }
 

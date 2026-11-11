@@ -35,10 +35,9 @@ describe("RR-4 malformed Authorization header", () => {
     process.env.APP_PASSWORD = "pw";
     expect(proxy(req(`Basic ${btoa("nocolon")}`)).status).toBe(401);
   });
-  // Known defect: atob() throws on invalid base64, so the proxy crashes instead of returning 401.
-  // `it.fails` keeps the suite green while documenting the bug; flip to `it` once fixed.
-  // See docs/known-bugs.md (KB-1) for diagnosis, failing run and plan.
-  it.fails("returns 401 for invalid base64", () => {
+  // Regression test for KB-1 (fixed): atob() used to throw on invalid base64 instead of returning 401.
+  // See docs/known-bugs.md for diagnosis, failing run and passing run.
+  it("returns 401 for invalid base64", () => {
     process.env.APP_PASSWORD = "pw";
     expect(proxy(req("Basic !!!not-base64!!!")).status).toBe(401);
   });
