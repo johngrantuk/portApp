@@ -1,0 +1,29 @@
+
+ RUN  v5.1.0 /Users/jg/Documents/code/portfolio
+
+ ✓ tests/valuation.test.ts > FR-1 value = amount x price, debt negative > values a wallet holding 2ms
+ ✓ tests/valuation.test.ts > FR-1 value = amount x price, debt negative > makes debt negative 0ms
+ ✓ tests/valuation.test.ts > FR-2 price precedence > prefers market over user default 1ms
+ ✓ tests/valuation.test.ts > FR-2 price precedence > uses user default when no market price 0ms
+ ✓ tests/valuation.test.ts > FR-2 price precedence > falls back to ETH price for ETH derivatives 0ms
+ ✓ tests/valuation.test.ts > FR-2 price precedence > pegs trusted stablecoins to 1 0ms
+ ✓ tests/valuation.test.ts > FR-2 price precedence > gives value 0 and source none otherwise 0ms
+ ✓ tests/valuation.test.ts > FR-3 spam tokens > does not count an untrusted WETH as ETH 0ms
+ ✓ tests/valuation.test.ts > FR-3 spam tokens > does not peg or count an unpriced untrusted USDC as stable 0ms
+ ✓ tests/valuation.test.ts > FR-4 summary totals > computes supplied, borrowed, stable and volatile 0ms
+ ✓ tests/valuation.test.ts > FR-5 manual assets > values BTC with market price and SOL with default 1ms
+ ✓ tests/valuation.test.ts > QR-2 valuation speed > values 500 holdings in under 50 ms 1ms
+ ✓ tests/proxy.test.ts > RR-1 basic auth > passes everything when APP_PASSWORD is unset 4ms
+ ✓ tests/proxy.test.ts > RR-1 basic auth > rejects missing credentials with 401 and WWW-Authenticate 2ms
+ ✓ tests/proxy.test.ts > RR-1 basic auth > accepts correct credentials and rejects wrong ones 1ms
+ ✓ tests/proxy.test.ts > RR-1 basic auth > allows passwords containing a colon 0ms
+ ✓ tests/proxy.test.ts > RR-4 malformed Authorization header > returns 401 for a header with no colon 0ms
+ ✓ tests/addresses.test.ts > FR-6 parsing > parses labels, de-duplicates case-insensitively and shortens default labels 3ms
+ ✓ tests/addresses.test.ts > FR-6 parsing > returns [] when unset 2ms
+ ✓ tests/addresses.test.ts > RR-2 invalid input > throws naming the bad address 1ms
+
+ Test Files  3 passed (3)
+      Tests  20 passed | 1 expected fail (21)
+   Start at  11:05:47
+   Duration  267ms (import 67%, transform 20%, tests 10%, worker 3%)
+

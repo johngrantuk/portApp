@@ -1,0 +1,32 @@
+
+ RUN  v5.1.0 /Users/jg/Documents/code/portfolio
+
+ ✓ tests/proxy.test.ts > RR-1 basic auth > passes everything when APP_PASSWORD is unset 4ms
+ ✓ tests/proxy.test.ts > RR-1 basic auth > rejects missing credentials with 401 and WWW-Authenticate 1ms
+ ✓ tests/proxy.test.ts > RR-1 basic auth > accepts correct credentials and rejects wrong ones 1ms
+ ✓ tests/proxy.test.ts > RR-1 basic auth > allows passwords containing a colon 0ms
+ ✓ tests/proxy.test.ts > RR-4 malformed Authorization header > returns 401 for a header with no colon 0ms
+   → Invalid character
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+InvalidCharacterError: Invalid character
+ ❯ proxy src/proxy.ts:12:21
+     10|   const [scheme, encoded] = header.split(" ");
+     11|   if (scheme === "Basic" && encoded) {
+     12|     const decoded = atob(encoded);
+       |                     ^
+     13|     const separator = decoded.indexOf(":");
+     14|     if (decoded.slice(0, separator) === username && decoded.slice(sepa…
+ ❯ tests/proxy.test.ts:42:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 5, INDEX_SIZE_ERR: 1, DOMSTRING_SIZE_ERR: 2, HIERARCHY_REQUEST_ERR: 3, WRONG_DOCUMENT_ERR: 4, INVALID_CHARACTER_ERR: 5, NO_DATA_ALLOWED_ERR: 6, NO_MODIFICATION_ALLOWED_ERR: 7, NOT_FOUND_ERR: 8, NOT_SUPPORTED_ERR: 9, INUSE_ATTRIBUTE_ERR: 10, INVALID_STATE_ERR: 11, SYNTAX_ERR: 12, INVALID_MODIFICATION_ERR: 13, NAMESPACE_ERR: 14, INVALID_ACCESS_ERR: 15, VALIDATION_ERR: 16, TYPE_MISMATCH_ERR: 17, SECURITY_ERR: 18, NETWORK_ERR: 19, ABORT_ERR: 20, URL_MISMATCH_ERR: 21, QUOTA_EXCEEDED_ERR: 22, TIMEOUT_ERR: 23, INVALID_NODE_TYPE_ERR: 24, DATA_CLONE_ERR: 25 }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  11:10:25
+   Duration  195ms (import 57%, transform 26%, tests 13%, worker 4%)
+
