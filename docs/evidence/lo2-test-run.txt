@@ -1,0 +1,14 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> portfolio@0.1.0 test
+> vitest run
+
+
+ RUN  v5.1.0 /Users/jg/Documents/code/portfolio
+
+
+ Test Files  7 passed (7)
+      Tests  43 passed (43)
+   Start at  13:18:27
+   Duration  1.28s (import 43%, tests 29%, transform 25%, worker 3%)
+

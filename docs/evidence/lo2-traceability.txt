@@ -1,0 +1,25 @@
+
+> portfolio@0.1.0 trace
+> node scripts/trace.mjs
+
+FR-1  valuation.test.ts
+FR-2  valuation.test.ts
+FR-3  valuation.test.ts
+FR-4  valuation.test.ts
+FR-5  valuation.test.ts
+FR-6  addresses.test.ts
+FR-7  portfolio.test.ts
+FR-8  portfolio.test.ts, prices.test.ts
+FR-9  route.test.ts
+FR-10 NO AUTOMATED TEST
+QR-1  route.test.ts
+QR-2  valuation.test.ts
+LR-1  format.test.ts
+LR-2  NO AUTOMATED TEST
+RR-1  proxy.test.ts
+RR-2  addresses.test.ts
+RR-3  portfolio.test.ts
+RR-4  proxy.test.ts
+RR-5  NO AUTOMATED TEST
+
+16/19 requirements have an automated test; 3 without.

@@ -1,0 +1,36 @@
+
+> portfolio@0.1.0 coverage
+> vitest run --coverage
+
+
+ RUN  v5.1.0 /Users/jg/Documents/code/portfolio
+      Coverage enabled with v8
+
+
+ Test Files  7 passed (7)
+      Tests  43 passed (43)
+   Start at  13:18:30
+   Duration  1.36s (import 42%, tests 29%, worker 18%, transform 11%)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   87.82 |    76.21 |   91.86 |   89.32 |                   
+ .../api/portfolio |     100 |       50 |     100 |     100 |                   
+  route.ts         |     100 |       50 |     100 |     100 | 12                
+ src/lib           |     100 |    98.59 |     100 |     100 |                   
+  valuation.ts     |     100 |    97.87 |     100 |     100 | 168               
+ src/lib/server    |   81.49 |    56.25 |   88.52 |    83.6 |                   
+  chains.ts        |       0 |        0 |       0 |       0 | 34-139            
+  discovery.ts     |       0 |        0 |       0 |       0 | 11-58             
+  portfolio.ts     |   96.83 |       78 |   98.03 |   98.46 | 81,240            
+  prices.ts        |     100 |    83.33 |     100 |     100 | 23                
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 87.82% ( 303/345 )
+Branches     : 76.21% ( 141/185 )
+Functions    : 91.86% ( 79/86 )
+Lines        : 89.32% ( 251/281 )
+================================================================================
